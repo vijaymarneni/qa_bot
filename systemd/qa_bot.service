@@ -1,0 +1,12 @@
+[Unit]
+Description=QA Bot Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/qa_bot
+ExecStart=/home/ubuntu/qa_bot/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
